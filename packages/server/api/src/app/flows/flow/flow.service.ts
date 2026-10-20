@@ -111,6 +111,7 @@ export const flowService = (log: FastifyBaseLogger) => ({
         connectionExternalIds,
         agentExternalIds,
         externalIds,
+        flowIds,
         versionState = FlowVersionState.DRAFT,
         includeTriggerSource = true,
         sortBy,
@@ -199,6 +200,10 @@ export const flowService = (log: FastifyBaseLogger) => ({
 
         if (externalIds !== undefined) {
             queryBuilder.andWhere('ff."externalId" IN (:...externalIds)', { externalIds })
+        }
+
+        if (flowIds !== undefined) {
+            queryBuilder.andWhere('ff.id IN (:...flowIds)', { flowIds })
         }
 
         if (connectionExternalIds !== undefined) {
@@ -343,6 +348,7 @@ export const flowService = (log: FastifyBaseLogger) => ({
         emitEvents = true,
         skipRequiredActionsCheck = false,
         editorSessionId = null,
+        auditReason,
     }: UpdateParams): Promise<PopulatedFlow> {
         const flowBeforeOperation = emitEvents
             ? previousFlow ?? await this.getOnePopulatedOrThrow({ id, projectId })
@@ -493,6 +499,7 @@ export const flowService = (log: FastifyBaseLogger) => ({
                 previousVersion: flowBeforeOperation.version,
                 previousStatus: flowBeforeOperation.status,
                 operation,
+                auditReason,
             })
         }
         return updatedFlow
@@ -963,6 +970,7 @@ type ListParamsBase = {
     name?: string
     versionState?: FlowVersionState
     externalIds?: string[]
+    flowIds?: FlowId[]
     connectionExternalIds?: string[]
     agentExternalIds?: string[]
     includeTriggerSource?: boolean
@@ -1010,6 +1018,7 @@ type UpdateParams = EventEmissionParams & {
     previousFlow?: PopulatedFlow
     skipRequiredActionsCheck?: boolean
     editorSessionId?: string | null
+    auditReason?: string
 }
 
 type UpdatePublishedVersionIdParams = {
