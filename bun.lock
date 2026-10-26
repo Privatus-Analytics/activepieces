@@ -7391,7 +7391,7 @@
       },
     },
     "packages/pieces/community/privatus-analytics": {
-      "name": "@activepieces/piece-privatus-analytics",
+      "name": "@privatus-analytics/piece-privatus-analytics",
       "version": "0.0.1",
       "dependencies": {
         "@activepieces/core-piece-types": "workspace:*",
@@ -12502,7 +12502,7 @@
 
     "@activepieces/piece-presentation": ["@activepieces/piece-presentation@workspace:packages/pieces/community/presentation"],
 
-    "@activepieces/piece-privatus-analytics": ["@activepieces/piece-privatus-analytics@workspace:packages/pieces/community/privatus-analytics"],
+    "@privatus-analytics/piece-privatus-analytics": ["@privatus-analytics/piece-privatus-analytics@workspace:packages/pieces/community/privatus-analytics"],
 
     "@activepieces/piece-productboard": ["@activepieces/piece-productboard@workspace:packages/pieces/community/productboard"],
 
