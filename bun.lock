@@ -7392,7 +7392,7 @@
     },
     "packages/pieces/community/privatus-analytics": {
       "name": "@privatus-analytics/piece-privatus-analytics",
-      "version": "0.0.1",
+      "version": "0.0.2",
       "dependencies": {
         "@activepieces/core-piece-types": "workspace:*",
         "@activepieces/core-utils": "workspace:*",

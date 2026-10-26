@@ -1,6 +1,6 @@
 {
   "name": "@privatus-analytics/piece-privatus-analytics",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Activepieces piece for Privatus Analytics, cookieless website analytics: visitor stats, top pages, live visitors and goal conversion triggers in your flows.",
   "keywords": [
     "activepieces",
